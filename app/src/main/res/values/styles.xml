@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyInputStyle">
+        <item name="boxBackgroundColor">@color/grey</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxStrokeColor">@color/orange</item>
+    </style>
+
+    <style name="MyInputStyle.Orange" parent="MyInputStyle">
+        <item name="boxBackgroundColor">@color/orange</item>
+        <item name="boxStrokeColor">@color/green</item>
+    </style>
+
+    <style name="MyFontStyle14">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/playwrite_us_modern</item>
+    </style>
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/view_a"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:background="@color/red"
+        android:padding="4dp"
+        android:text="View A"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/view_b"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/blue"
+        android:padding="4dp"
+        android:text="View B"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/start"
+        app:layout_constraintBaseline_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/view_c"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@color/green"
+        android:padding="4dp"
+        android:text="View C"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/start"
+        app:layout_constraintBaseline_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/view_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:padding="4dp"
+        android:text="View D"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/view_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple"
+        android:padding="4dp"
+        android:text="View E"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/start"
+        app:layout_constraintBaseline_toTopOf="parent"/>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="view_a, view_b, view_c, view_d, view_e"
+        app:flow_horizontalGap="10dp"
+        app:flow_verticalGap="10dp"
+        app:flow_wrapMode="chain"
+        app:flow_horizontalBias="0"
+        app:flow_firstHorizontalBias="0"
+        app:flow_horizontalStyle="packed"
+        app:layout_constraintEnd_toEndOf="@id/end"
+        app:layout_constraintStart_toStartOf="@id/start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/start"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/end"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

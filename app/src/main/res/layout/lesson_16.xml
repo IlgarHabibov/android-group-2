@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/titleNew"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/myCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="checkbox1"
+        android:checked="true"
+        app:buttonCompat="@drawable/checkbox_selector"
+        android:textColor="@color/orange"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleNew"
+        android:layout_marginTop="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myCheckbox"
+        android:layout_marginTop="16dp"
+        >
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/teacherSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/teacher"
+            app:buttonTint="@color/orange"
+            android:checked="true"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/studentSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/student"
+            app:buttonTint="@color/orange"
+           />
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/myToggleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:selectionRequired="false"
+        app:singleSelection="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/none"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            app:backgroundTint="@drawable/first_selector"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonTeacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:text="@string/teacher"
+            app:backgroundTint="@drawable/first_selector"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            app:backgroundTint="@drawable/first_selector"/>
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/mySwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showText="false"
+        android:checked="false"
+        app:thumbIconSize="20dp"
+        app:thumbIconTint="@color/green"
+        app:thumbTint="@color/blue"
+        app:thumbIcon="@drawable/checkbox_selector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myToggleGroup"
+        android:layout_marginTop="16dp"/>
+
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/mySlider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:values="@array/initial_slider_values"
+        android:stepSize="10"
+        app:labelBehavior="withinBounds"
+        app:haloColor="@color/red"
+        app:haloRadius="40dp"
+        app:thumbColor="@color/red"
+        app:thumbStrokeWidth="3dp"
+        app:thumbWidth="40dp"
+        app:thumbHeight="40dp"
+        app:thumbRadius="40dp"
+        app:thumbStrokeColor="@color/green"
+        app:thumbElevation="10dp"
+        app:tickColor="@color/orange"
+        app:tickVisible="true"
+        style="@style/Widget.MaterialComponents.Slider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mySwitch"
+        android:layout_marginTop="16dp"/>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/myCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mySlider"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="asdasda asdas adasd asda" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="asdasda asdads"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myCard"
+        app:chipSpacing="10dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textColor="@color/orange"
+            app:chipCornerRadius="20dp"
+            android:checkable="false"
+            android:clickable="false"
+            app:chipStrokeWidth="0dp"/>
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdadasdasdasd"
+            android:textColor="@color/orange"
+            app:chipCornerRadius="20dp"
+            android:checkable="false"
+            android:clickable="false"/>
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdasdasdasdasd"
+            android:textColor="@color/orange"
+            app:chipStrokeWidth="0dp"
+            app:chipBackgroundColor="@color/purple"
+            app:chipCornerRadius="20dp"
+            android:checkable="false"
+            android:clickable="false"/>
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdasdaasasasasassdasdasd"
+            android:textColor="@color/orange"
+            app:chipCornerRadius="20dp"
+            android:checkable="false"
+            android:clickable="false"/>
+
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/salam"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:fontFamily="@font/playwrite"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/message_here"
+        android:textColorHint="@color/red"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        android:inputType="date"
+        android:imeOptions="actionSend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="16dp"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/myInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/write_here"
+        app:hintAnimationEnabled="false"
+        app:hintTextColor="@color/purple"
+        app:placeholderText="Name"
+        app:placeholderTextColor="@color/orange"
+        app:boxBackgroundColor="@color/purpleLight"
+        app:boxStrokeColor="@color/purpleLight"
+        app:boxStrokeWidth="0dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputName"
+        android:layout_marginTop="16dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/myImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/android_logo_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myInput"
+        app:shapeAppearanceOverlay="@style/CutRadius"
+        app:strokeColor="@color/red"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/myButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textColor="@color/red"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_mail"
+        app:iconTint="@color/red"
+        app:iconGravity="textStart"
+        app:iconSize="30dp"
+        app:backgroundTint="@color/white"
+        app:rippleColor="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myImage"
+        android:layout_marginTop="16dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_mail"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myButton"
+        android:layout_marginTop="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

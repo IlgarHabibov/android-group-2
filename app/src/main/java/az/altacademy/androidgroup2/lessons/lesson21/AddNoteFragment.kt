@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentAddNoteBinding
 
@@ -33,14 +34,15 @@ class AddNoteFragment : Fragment() {
     }
 
     private fun saveNote(){
-        val title = bindin.titleInput.text.toString()
-        val note = bindin.noteInput.text.toString()
-        val bundle = bundleOf(
-            TITLE to title,
-            NOTE to note
-        )
-        parentFragmentManager.setFragmentResult(NOTE_RESULT, bundle)
-        parentFragmentManager.popBackStack()
+//        val title = bindin.titleInput.text.toString()
+//        val note = bindin.noteInput.text.toString()
+//        val bundle = bundleOf(
+//            TITLE to title,
+//            NOTE to note
+//        )
+//        parentFragmentManager.setFragmentResult(NOTE_RESULT, bundle)
+//        parentFragmentManager.popBackStack()
+        findNavController().navigate(R.id.action_addNote_to_details)
     }
 
 

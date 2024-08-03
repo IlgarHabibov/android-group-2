@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson21.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_list_to_addNote"
+            app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_list_to_sub_main_graph"
+            app:destination="@id/sub_main_graph" />
+        <action
+            android:id="@+id/action_list_to_myDialog"
+            app:destination="@id/myDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson21.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNote_to_details"
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/listFragment" />
+    </fragment>
+    <include app:graph="@navigation/sub_main_graph" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="az.altacademy.androidgroup2.fragments.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <dialog
+        android:id="@+id/myDialogFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson23.MyDialogFragment"
+        android:label="fragment_my_dialog"
+        tools:layout="@layout/fragment_my_dialog" />
+
+
+</navigation>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentCreateAccountBinding
 import az.altacademy.androidgroup2.databinding.FragmentSocialBinding
@@ -54,7 +55,7 @@ class CreateAccountFragment : Fragment() {
                 "email" to email,
                 "password" to password
             )
-            changeFragment(AccountCreatedFragment::class.java, bundle)
+            findNavController().navigate(R.id.action_createAccount_to_accountCreated, bundle)
         }
 
 

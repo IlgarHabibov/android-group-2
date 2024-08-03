@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sub_main_graph"
+    app:startDestination="@id/createAccountFragment2">
+
+    <fragment
+        android:id="@+id/createAccountFragment2"
+        android:name="az.altacademy.androidgroup2.homework19.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" >
+        <action
+            android:id="@+id/action_createAccount_to_accountCreated"
+            app:destination="@id/accountCreatedFragment"
+            app:popUpTo="@id/sub_main_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountCreatedFragment"
+        android:name="az.altacademy.androidgroup2.homework19.AccountCreatedFragment"
+        android:label="fragment_account_created"
+        tools:layout="@layout/fragment_account_created" />
+</navigation>

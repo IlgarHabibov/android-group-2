@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_menu_graph"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="az.altacademy.androidgroup2.navigationview.fragments.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/eventsPage"
+        android:name="az.altacademy.androidgroup2.navigationview.fragments.EventsFragment"
+        android:label="@string/events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/historyPage"
+        android:name="az.altacademy.androidgroup2.navigationview.fragments.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/homePage"
+        android:name="az.altacademy.androidgroup2.navigationview.fragments.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+</navigation>

@@ -19,6 +19,8 @@ import az.altacademy.androidgroup2.databinding.FragmentListBinding
 import az.altacademy.androidgroup2.databinding.FragmentMyDialogBinding
 import az.altacademy.androidgroup2.lessons.lesson22.PagerFragment
 import az.altacademy.androidgroup2.lessons.lesson23.MyDialogFragment
+import az.altacademy.androidgroup2.lessons.lesson24.BottomSheetFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 class ListFragment : Fragment() {
@@ -53,17 +55,22 @@ class ListFragment : Fragment() {
             val args = bundleOf(
                 "name" to "Kotlin"
             )
-            findNavController().navigate(R.id.action_list_to_addNote, args)
+//            findNavController().navigate(R.id.action_list_to_addNote, args)
+
+            val input1 = "asdasd"
+            val input2 = "122".toInt()
+            findNavController().navigate(ListFragmentDirections.actionListToAddNote(myArgument = input1, argument2 = input2))
 
         }
 
         binding?.nextButton?.setOnClickListener {
 //            findNavController().navigate(R.id.action_list_to_sub_main_graph)
 //            showAlert()
-
 //            MyDialogFragment().show(childFragmentManager, "MyDialogFragment")
 
-            findNavController().navigate(R.id.action_list_to_myDialog)
+//            findNavController().navigate(R.id.action_list_to_myDialog)
+
+            showBottomSheet()
 
         }
 
@@ -94,6 +101,10 @@ class ListFragment : Fragment() {
         }
 
 
+    }
+
+    private fun showBottomSheet(){
+        BottomSheetFragment().show(childFragmentManager, "BottomSheetFragment")
     }
 
     private fun showAlert(){

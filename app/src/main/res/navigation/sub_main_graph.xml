@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/createAccountFragment2"
         android:name="az.altacademy.androidgroup2.homework19.CreateAccountFragment"
-        android:label="fragment_create_account"
+        android:label="Step 4"
         tools:layout="@layout/fragment_create_account" >
         <action
             android:id="@+id/action_createAccount_to_accountCreated"
@@ -18,6 +18,6 @@
     <fragment
         android:id="@+id/accountCreatedFragment"
         android:name="az.altacademy.androidgroup2.homework19.AccountCreatedFragment"
-        android:label="fragment_account_created"
+        android:label="Step 5"
         tools:layout="@layout/fragment_account_created" />
 </navigation>

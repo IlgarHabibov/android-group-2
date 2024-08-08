@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
@@ -27,6 +28,10 @@ class AddNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val safeArgs = AddNoteFragmentArgs.fromBundle(arguments ?: bundleOf())
+
+        Toast.makeText(requireContext(), "arg1 = ${safeArgs.myArgument}   arg2 = ${safeArgs.argument2}", Toast.LENGTH_SHORT).show()
 
         bindin.save.setOnClickListener {
             saveNote()

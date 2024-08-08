@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="az.altacademy.androidgroup2.lessons.lesson21.ListFragment"
-        android:label="fragment_list"
+        android:label="Step1. List"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_list_to_addNote"
@@ -24,19 +24,32 @@
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="az.altacademy.androidgroup2.lessons.lesson21.AddNoteFragment"
-        android:label="fragment_add_note"
+        android:label="Step 2. Add Note"
         tools:layout="@layout/fragment_add_note" >
         <action
             android:id="@+id/action_addNote_to_details"
             app:destination="@id/detailsFragment"
             app:popUpTo="@id/listFragment" />
+
+        <argument
+            android:name="myArgument"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Kotlin" />
+
+        <argument
+            android:name="argument2"
+            app:argType="integer"
+            android:defaultValue="112" />
+
     </fragment>
     <include app:graph="@navigation/sub_main_graph" />
     <fragment
         android:id="@+id/detailsFragment"
         android:name="az.altacademy.androidgroup2.fragments.DetailsFragment"
-        android:label="fragment_details"
+        android:label="Step3. Details"
         tools:layout="@layout/fragment_details" />
+
     <dialog
         android:id="@+id/myDialogFragment"
         android:name="az.altacademy.androidgroup2.lessons.lesson23.MyDialogFragment"

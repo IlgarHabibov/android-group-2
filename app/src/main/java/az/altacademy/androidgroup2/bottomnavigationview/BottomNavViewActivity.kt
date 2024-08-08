@@ -25,7 +25,6 @@ class BottomNavViewActivity : AppCompatActivity() {
         setSupportActionBar(binding?.toolbar)
 
         binding?.bottomMenu?.setOnItemSelectedListener { item ->
-
             when (item.itemId) {
                 R.id.homePage -> changeMyFragment(HomeFragment(), getString(R.string.home))
                 R.id.eventsPage -> changeMyFragment(EventsFragment(), getString(R.string.events))

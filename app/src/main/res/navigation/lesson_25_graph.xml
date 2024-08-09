@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lesson_25_graph"
+    app:startDestination="@id/lesson25Fragment">
+
+    <fragment
+        android:id="@+id/lesson25Fragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson25.Lesson25Fragment"
+        android:label="fragment_lesson25"
+        tools:layout="@layout/fragment_lesson25" />
+</navigation>

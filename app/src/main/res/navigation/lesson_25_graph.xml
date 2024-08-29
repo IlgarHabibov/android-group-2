@@ -3,11 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lesson_25_graph"
-    app:startDestination="@id/lesson25Fragment">
+    app:startDestination="@id/practice13Fragment">
 
     <fragment
         android:id="@+id/lesson25Fragment"
         android:name="az.altacademy.androidgroup2.lessons.lesson25.Lesson25Fragment"
         android:label="fragment_lesson25"
         tools:layout="@layout/fragment_lesson25" />
+    <fragment
+        android:id="@+id/practice13Fragment"
+        android:name="az.altacademy.androidgroup2.lessons.practice13.Practice13Fragment"
+        android:label="fragment_practice13"
+        tools:layout="@layout/fragment_practice13" >
+        <action
+            android:id="@+id/action_practice13Fragment_to_practice131Fragment"
+            app:destination="@id/practice131Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/practice131Fragment"
+        android:name="az.altacademy.androidgroup2.lessons.practice13.Practice131Fragment"
+        android:label="Practice131Fragment" />
 </navigation>

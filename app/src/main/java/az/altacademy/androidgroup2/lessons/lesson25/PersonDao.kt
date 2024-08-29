@@ -1,5 +1,6 @@
 package az.altacademy.androidgroup2.lessons.lesson25
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -23,7 +24,7 @@ interface PersonDao {
     fun deletePerson(person: PersonEntity)
 
     @Query("SELECT * FROM personentity")
-    fun getAllPersons(): List<PersonEntity>
+    fun getAllPersons(): LiveData<List<PersonEntity>>
 
     @Query("SELECT * FROM personentity WHERE id = :personId")
     fun getPersonById(personId: Int): PersonEntity

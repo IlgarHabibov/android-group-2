@@ -6,14 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.room.Room
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentLesson25Binding
+import az.altacademy.androidgroup2.lessons.lesson26.MyFirstViewModel
 
 class Lesson25Fragment : Fragment() {
 
     private lateinit var binding: FragmentLesson25Binding
     private val adapter = Lesson23Adapter()
+    private val viewModel by viewModels<MyFirstViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.createDb(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,44 +34,31 @@ class Lesson25Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
+
+        viewModel.getAllPersons()?.observe(viewLifecycleOwner){ persons ->
+            adapter.addList(persons)
+        }
+
         binding.save.setOnClickListener {
             save()
         }
         adapter.onDeleteClickListener { person ->
             delete(person)
         }
-        getAllPersons()
-    }
-
-    private fun getAllPersons(){
-        val persons: List<PersonEntity> = getDbInstance().getPersonDAO().getAllPersons()
-        adapter.addList(persons)
     }
 
     private fun save(){
         val name = binding.inputName.text.toString()
         val surname = binding.inputSurname.text.toString()
-        binding.inputName.text = null
-        binding.inputSurname.text = null
-
-        val person = PersonEntity(name = name, surname = surname)
-        getDbInstance().getPersonDAO().addPerson(person)
-        getAllPersons()
+        viewModel.savePerson(name, surname)
     }
 
     private fun delete(person: PersonEntity){
-        getDbInstance().getPersonDAO().deletePerson(person)
-        getAllPersons()
+        viewModel.delete(person)
     }
 
-    private fun getDbInstance(): AppDatabase{
-        val db: AppDatabase =  Room.databaseBuilder(
-            context = requireContext(),
-            AppDatabase::class.java,
-            "app-database"
-        )
-            .allowMainThreadQueries()
-            .build()
-        return db
+    override fun onDestroy() {
+        viewModel.destroyDB()
+        super.onDestroy()
     }
 }

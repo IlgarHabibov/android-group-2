@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,11 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidGroup2"
-        android:name=".App"
         tools:targetApi="31">
-
         <activity
-            android:name=".lessons.lesson25.Lesson25Activity"
+            android:name=".lessons.lesson27.Lesson27Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,13 +32,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".lessons.lesson25.Lesson25Activity"
+            android:exported="false"/>
         <activity
             android:name=".lessons.lesson24.Lesson24Activity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".lessons.lesson23.Lesson23Activity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".lessons.lesson21.Lesson21Activity"
             android:exported="false" />

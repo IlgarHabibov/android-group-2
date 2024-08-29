@@ -25,7 +25,7 @@ class Lesson23Adapter: RecyclerView.Adapter<Lesson23Adapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemLesson25Binding): RecyclerView.ViewHolder(binding.root){
         fun bind(person: PersonEntity){
-            binding.title.text = "${person.id} ${person.name}  ${person.surname}"
+            binding.title.text = "${person.id}    ${person.name}  ${person.surname}"
             binding.delete.setOnClickListener {
                 onDeleteClick?.invoke(person)
             }

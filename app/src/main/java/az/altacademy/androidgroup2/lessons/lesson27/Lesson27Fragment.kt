@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentLesson27Binding
@@ -21,6 +22,7 @@ class Lesson27Fragment : Fragment() {
 
     private lateinit var binding: FragmentLesson27Binding
     private val adapter = Lesson27Adapter()
+    private val viewModel by viewModels<Lesson27VM>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,24 +42,34 @@ class Lesson27Fragment : Fragment() {
                 Lesson27FragmentDirections.actionLesson27FragmentToLesson272Fragment(id)
             )
         }
+        viewModel.getFacts()
+
+        viewModel.state.observe(viewLifecycleOwner){ list ->
+            adapter.addData(list.orEmpty())
+        }
+
+        viewModel.x.observe(viewLifecycleOwner){ error ->
+            Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_SHORT).show()
+        }
 
 
-        ApiManager.getApiService().getFacts().enqueue(object : Callback<List<FactsResponse>>{
+//        ApiManager.getApiService().getFacts().enqueue(object : Callback<List<FactsResponse>>{
+//
+//            override fun onResponse(
+//                call: Call<List<FactsResponse>>,
+//                response: Response<List<FactsResponse>>
+//            ) {
+//
+//                adapter.addData(response.body().orEmpty())
+//            }
+//
+//            override fun onFailure(call: Call<List<FactsResponse>>, throwable: Throwable) {
+//                Log.d("asdasdasdasdasd", "onFailure: ${throwable.localizedMessage}")
+//                Toast.makeText(requireContext(), "Error: ${throwable.localizedMessage}", Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
 
-            override fun onResponse(
-                call: Call<List<FactsResponse>>,
-                response: Response<List<FactsResponse>>
-            ) {
-
-                adapter.addData(response.body().orEmpty())
-            }
-
-            override fun onFailure(call: Call<List<FactsResponse>>, throwable: Throwable) {
-                Log.d("asdasdasdasdasd", "onFailure: ${throwable.localizedMessage}")
-                Toast.makeText(requireContext(), "Error: ${throwable.localizedMessage}", Toast.LENGTH_SHORT).show()
-            }
-
-        })
     }
 
 }

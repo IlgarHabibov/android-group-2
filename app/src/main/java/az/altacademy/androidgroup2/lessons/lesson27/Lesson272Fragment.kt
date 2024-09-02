@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentLesson272Binding
 import az.altacademy.androidgroup2.databinding.FragmentLesson27Binding
+import az.altacademy.androidgroup2.lessons.lesson28.LoginRequest
 import coil.load
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,13 +38,28 @@ class Lesson272Fragment : Fragment() {
 
         val args = Lesson272FragmentArgs.fromBundle(arguments ?: bundleOf())
         val id = args.id
-        Log.d("asdASdasdasdasd", "id: $id")
 
+//        ApiManager.getApiService().getCommentsByPathId(
+//            12,
+//            0,
+//            15
+//        )
+//
+//        ApiManager.getApiService().getCommentsByPathId2(
+//            mapOf(
+//                "postId" to 12,
+//                "page" to 0,
+//                "size" to 15
+//            )
+//        )
+
+        ApiManager.getApiService().login(
+            LoginRequest("test@gmail.com", "Test123")
+        )
 
         ApiManager.getApiService().getFactById(id).enqueue(object : Callback<FactResponse> {
 
             override fun onResponse(call: Call<FactResponse>, response: Response<FactResponse>) {
-                Log.d("asdASdasdasdasd", "onResponse: $response")
                 val data = response.body()
                 onSuccess(data)
             }
@@ -55,7 +71,7 @@ class Lesson272Fragment : Fragment() {
         })
     }
 
-    private fun onSuccess(data: FactResponse?){
+    private fun onSuccess(data: FactResponse?) {
         binding.image.load(data?.user?.photo)
         binding.name.text = "${data?.user?.name?.first}  ${data?.user?.name?.last}"
         binding.text.text = data?.text

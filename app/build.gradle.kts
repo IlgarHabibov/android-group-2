@@ -59,6 +59,9 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.okHttp)
+    implementation(libs.loggingInterceptor)
+
 
     implementation(libs.room.runtime)
     kapt(libs.room.compiler)

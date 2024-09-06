@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".lessons.lesson28_2.CreatePostFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_post"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/inputTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:hint="@string/title"
+        android:layout_marginTop="@dimen/dimen_10dp"/>
+
+    <EditText
+        android:id="@+id/inputBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="4"
+        android:lines="4"
+        android:maxLines="6"
+        android:hint="@string/description"
+        android:layout_marginTop="@dimen/dimen_10dp"/>
+
+
+    <Button
+        android:id="@+id/createPostButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/create_post"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

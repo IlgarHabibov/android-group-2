@@ -1,4 +1,4 @@
-package az.altacademy.androidgroup2.lessons.lesson28
+package az.altacademy.androidgroup2.lessons.lesson27_2
 
 data class LoginRequest(
     var email: String,

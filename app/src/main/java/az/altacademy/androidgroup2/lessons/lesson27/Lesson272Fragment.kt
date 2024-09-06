@@ -1,23 +1,17 @@
 package az.altacademy.androidgroup2.lessons.lesson27
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
-import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentLesson272Binding
-import az.altacademy.androidgroup2.databinding.FragmentLesson27Binding
-import az.altacademy.androidgroup2.lessons.lesson28.LoginRequest
+import az.altacademy.androidgroup2.lessons.lesson27_2.LoginRequest
 import coil.load
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class Lesson272Fragment : Fragment() {

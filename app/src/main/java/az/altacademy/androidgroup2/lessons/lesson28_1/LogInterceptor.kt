@@ -1,6 +1,5 @@
-package az.altacademy.androidgroup2.lessons.lesson29
+package az.altacademy.androidgroup2.lessons.lesson28_1
 
-import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
 

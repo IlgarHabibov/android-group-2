@@ -1,14 +1,12 @@
 package az.altacademy.androidgroup2.lessons.lesson27
 
-import az.altacademy.androidgroup2.lessons.lesson28.LikePostRequest
-import az.altacademy.androidgroup2.lessons.lesson28.LikePostResponse
-import az.altacademy.androidgroup2.lessons.lesson28.LoginRequest
-import az.altacademy.androidgroup2.lessons.lesson28.LoginResponse
+import az.altacademy.androidgroup2.lessons.lesson27_2.LikePostRequest
+import az.altacademy.androidgroup2.lessons.lesson27_2.LikePostResponse
+import az.altacademy.androidgroup2.lessons.lesson27_2.LoginRequest
+import az.altacademy.androidgroup2.lessons.lesson27_2.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Headers
 import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query

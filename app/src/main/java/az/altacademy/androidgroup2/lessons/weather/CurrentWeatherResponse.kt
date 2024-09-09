@@ -16,8 +16,8 @@ data class WeatherLocation(
 )
 
 data class Current(
-    @SerializedName("tepm_c")
-    var temperature: Int,
+    @SerializedName("temp_c")
+    var temperature: Double,
 
     @SerializedName("is_day")
     var isDay: Int,

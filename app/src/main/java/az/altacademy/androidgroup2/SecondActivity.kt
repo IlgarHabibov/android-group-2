@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import az.altacademy.androidgroup2.databinding.ActivitySecondBinding
 import az.altacademy.androidgroup2.fragments.FirstFragment
 
@@ -20,5 +21,6 @@ class SecondActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, firstFragment)
             .commit()
+
     }
 }

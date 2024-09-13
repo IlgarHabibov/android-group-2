@@ -1,9 +1,12 @@
 package az.altacademy.androidgroup2.lessons.weather
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
+import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,12 +19,17 @@ class WeatherViewModel : ViewModel() {
 
     fun getWeatherData(city: String) {
         _state.value = ApiState.Loading(true)
+
+
+        Log.d("asdasdasdasdas", "onResponse 0: ")
+
         ApiManager.getWeatherApiService().getCurrentWeatherByCity(city).enqueue(object :
             Callback<CurrentWeatherResponse> {
             override fun onResponse(
                 call: Call<CurrentWeatherResponse>,
                 response: Response<CurrentWeatherResponse>
             ) {
+                Log.d("asdasdasdasdas", "onResponse 1: ")
                if (response.isSuccessful){
                    _state.value = ApiState.Success(data = response.body())
                }else {
@@ -36,5 +44,15 @@ class WeatherViewModel : ViewModel() {
             }
 
         })
+
+        Log.d("asdasdasdasdas", "onResponse 2: ")
+    }
+
+    suspend fun start(){
+        test1()
+    }
+
+    suspend fun test1(){
+
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentWeatherBinding
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
@@ -34,12 +35,17 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        lifecycle
+
         viewModel.state.observe(viewLifecycleOwner){state ->
             when(state){
                 is ApiState.Success ->{
                     binding.labelCity.text = state.data?.location?.name.toString()
                     binding.labelTemperature.text = state.data?.current?.temperature.toString()
                     binding.labelStatus.text = state.data?.current?.condition?.text
+
+                    val status = state.data?.current?.condition?.text
+
                 }
                 is ApiState.Error -> {
                     Toast.makeText(requireContext(), "${state.errorMessage}", Toast.LENGTH_SHORT).show()
@@ -53,7 +59,7 @@ class WeatherFragment : Fragment() {
 
         }
 
-        viewModel.getWeatherData("Baku")
+        viewModel.getWeatherData("Dublin")
     }
 
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lesson_27_graph"
-    app:startDestination="@id/weatherFragment">
+    app:startDestination="@id/coroutineFragment">
 
     <fragment
         android:id="@+id/lesson27Fragment"
@@ -34,4 +34,9 @@
         android:name="az.altacademy.androidgroup2.lessons.weather.WeatherFragment"
         android:label="fragment_weather"
         tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/coroutineFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson30.CoroutineFragment"
+        android:label="fragment_coroutine"
+        tools:layout="@layout/fragment_coroutine" />
 </navigation>

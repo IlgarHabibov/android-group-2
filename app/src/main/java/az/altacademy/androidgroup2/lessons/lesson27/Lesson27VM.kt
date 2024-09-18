@@ -1,6 +1,5 @@
 package az.altacademy.androidgroup2.lessons.lesson27
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import retrofit2.Call
@@ -13,8 +12,6 @@ class Lesson27VM: ViewModel() {
     var x : MutableLiveData<String> = MutableLiveData<String>()
 
     fun getFacts(){
-        val request =  ApiManager.getApiService().getFacts().request()
-
 
         ApiManager.getApiService().getFacts().enqueue(object : Callback<List<FactsResponse>> {
 
@@ -28,5 +25,8 @@ class Lesson27VM: ViewModel() {
             }
 
         })
+
+
     }
+
 }

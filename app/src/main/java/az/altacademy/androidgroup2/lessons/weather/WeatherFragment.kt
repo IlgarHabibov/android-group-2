@@ -27,15 +27,12 @@ class WeatherFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentWeatherBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        lifecycle
 
         viewModel.state.observe(viewLifecycleOwner){state ->
             when(state){
@@ -44,10 +41,9 @@ class WeatherFragment : Fragment() {
                     binding.labelTemperature.text = state.data?.current?.temperature.toString()
                     binding.labelStatus.text = state.data?.current?.condition?.text
 
-                    val status = state.data?.current?.condition?.text
-
                 }
                 is ApiState.Error -> {
+
                     Toast.makeText(requireContext(), "${state.errorMessage}", Toast.LENGTH_SHORT).show()
 
                 }
@@ -55,11 +51,9 @@ class WeatherFragment : Fragment() {
                     binding.loading.isVisible = state.isLoading
                 }
             }
-
-
         }
 
-        viewModel.getWeatherData("Dublin")
+        viewModel.getWeatherData("Baku")
     }
 
 }

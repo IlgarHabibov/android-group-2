@@ -1,15 +1,12 @@
 package az.altacademy.androidgroup2.lessons.weather
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
-import kotlinx.coroutines.runBlocking
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import az.altacademy.androidgroup2.utils.apiCall
+import kotlinx.coroutines.launch
 
 class WeatherViewModel : ViewModel() {
 
@@ -19,40 +16,18 @@ class WeatherViewModel : ViewModel() {
 
     fun getWeatherData(city: String) {
         _state.value = ApiState.Loading(true)
-
-
-        Log.d("asdasdasdasdas", "onResponse 0: ")
-
-        ApiManager.getWeatherApiService().getCurrentWeatherByCity(city).enqueue(object :
-            Callback<CurrentWeatherResponse> {
-            override fun onResponse(
-                call: Call<CurrentWeatherResponse>,
-                response: Response<CurrentWeatherResponse>
-            ) {
-                Log.d("asdasdasdasdas", "onResponse 1: ")
-               if (response.isSuccessful){
-                   _state.value = ApiState.Success(data = response.body())
-               }else {
-                   _state.value = ApiState.Error(errorMessage = "Xeta bas verdi")
-               }
-                _state.value = ApiState.Loading(false)
+        viewModelScope.launch {
+            val result = apiCall { ApiManager.getWeatherApiService().getCurrentWeatherByCityNew(city) }
+            _state.value = ApiState.Loading(false)
+            when(result){
+                is ApiResult.Success -> {
+                    _state.value = ApiState.Success(data = result.data)
+                }
+                is ApiResult.Error -> {
+                    _state.value = ApiState.Error(result.error?.errorDescription)
+                }
             }
-
-            override fun onFailure(call: Call<CurrentWeatherResponse>, t: Throwable) {
-                _state.value = ApiState.Error(errorMessage = t.localizedMessage)
-                _state.value = ApiState.Loading(false)
-            }
-
-        })
-
-        Log.d("asdasdasdasdas", "onResponse 2: ")
+        }
     }
 
-    suspend fun start(){
-        test1()
-    }
-
-    suspend fun test1(){
-
-    }
 }

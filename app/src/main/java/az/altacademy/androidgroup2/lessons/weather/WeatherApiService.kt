@@ -1,6 +1,7 @@
 package az.altacademy.androidgroup2.lessons.weather
 
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +11,11 @@ interface WeatherApiService {
     fun getCurrentWeatherByCity(
         @Query("q") city: String,
     ): Call<CurrentWeatherResponse>
+
+
+    @GET("current.json")
+    fun getCurrentWeatherByCityNew(
+        @Query("q") city: String,
+    ): Response<CurrentWeatherResponse>
 
 }

@@ -15,7 +15,7 @@ interface PostApiService {
     @POST("posts")
     fun createPost(
         @Body requestBody: CreatePostModel
-    ):Call<CreatePostResponse>
+    ):Response<CreatePostResponse>
 
     @HTTP(
         method = "DELETE",

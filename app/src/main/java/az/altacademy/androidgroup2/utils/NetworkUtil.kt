@@ -1,6 +1,6 @@
 package az.altacademy.androidgroup2.utils
 
-import az.altacademy.androidgroup2.lessons.weather.ApiResult
+import az.altacademy.androidgroup2.lessons.weather.ApiState
 import az.altacademy.androidgroup2.lessons.weather.BaseError
 import az.altacademy.androidgroup2.lessons.weather.ErrorModel
 import com.google.gson.Gson
@@ -9,18 +9,18 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import retrofit2.Response
 
-suspend fun <T> apiCall(call: suspend () -> Response<T>): ApiResult<T> {
+suspend fun <T> apiCall(call: suspend () -> Response<T>): ApiState<T> {
     return try {
         val result = withContext(Dispatchers.IO){
             call.invoke()
         }
         if (result.isSuccessful){
-            ApiResult.Success(result.body())
+            ApiState.Success(result.body())
         }else{
             val gson = Gson()
             val jsonObject = JSONObject(result.errorBody()?.charStream()?.readText())
             val error = gson.fromJson(jsonObject.toString(), BaseError::class.java)
-            ApiResult.Error(error.error)
+            ApiState.Error(error.error)
         }
     }
 //    catch (e: NetworkErrorException){
@@ -35,7 +35,7 @@ suspend fun <T> apiCall(call: suspend () -> Response<T>): ApiResult<T> {
 //    }
     catch (e: Exception){
         e.printStackTrace()
-        ApiResult.Error(
+        ApiState.Error(
             ErrorModel(code = 505, message = "Zehmet olmasa bir qeder sonra yoxlayin")
         )
     }

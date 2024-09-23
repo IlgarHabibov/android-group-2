@@ -2,31 +2,67 @@ package az.altacademy.androidgroup2.lessons.weather
 
 import com.google.gson.annotations.SerializedName
 
+
+
 data class CurrentWeatherResponse(
-    var location: WeatherLocation?,
-    var current: Current?
+    val location: Location,
+    val current: Current,
+    val forecast: Forecast
 )
 
+data class Location(
+    val name: String,
+    val country: String,
+    @SerializedName("localtime")
+    val localtime: String,
 
-data class WeatherLocation(
-    var name: String?,
-    var region: String?,
-    var country: String?,
-    var localtime: String?
-)
+    )
 
 data class Current(
+    @SerializedName("last_updated")
+    val lastUpdated: String,
     @SerializedName("temp_c")
-    var temperature: Double?,
-
+    val temperature: Double,
+    val humidity: Int,
+    @SerializedName("wind_kph")
+    val windKph: Double,
+    @SerializedName("feelslike_c")
+    val feelsLike: Double,
     @SerializedName("is_day")
-    var isDay: Int?,
-
-    var condition: Condition?
+    val isDay: Int,
+    val condition: Condition
 )
 
+
+data class Forecast(
+    @SerializedName("forecastday")
+    val forecastDay: List<ForecastDay>
+
+)
+
+
+data class ForecastDay(
+    @SerializedName("date")
+    val date: String,
+    val day: Day,
+
+
+    )
+
 data class Condition(
-    var text: String?,
-    var icon: String?,
-    var code: Int?
+    val text: String,
+    val icon: String,
+    val code: Int
+)
+
+data class Day(
+    @SerializedName("avgtemp_c")
+    val temperatureAv: Double,
+    @SerializedName("avghumidity")
+    val humidityAv: Int,
+    @SerializedName("maxwind_kph")
+    val windKphMax: Double,
+    val condition: Condition
+
+
 )

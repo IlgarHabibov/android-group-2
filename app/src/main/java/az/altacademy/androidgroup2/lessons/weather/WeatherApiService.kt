@@ -18,4 +18,11 @@ interface WeatherApiService {
         @Query("q") city: String,
     ): Response<CurrentWeatherResponse>
 
+    @GET("v1/forecast.json")
+    suspend fun getDailyWeather(
+        @Query("q") location: String,
+        @Query("days") days: Int
+    ): Response<CurrentWeatherResponse>
+
+
 }

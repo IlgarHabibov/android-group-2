@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
 import az.altacademy.androidgroup2.utils.apiCall
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class WeatherViewModel : ViewModel() {
 
@@ -24,7 +26,7 @@ class WeatherViewModel : ViewModel() {
                     _state.value = ApiState.Success(data = result.data)
                 }
                 is ApiResult.Error -> {
-                    _state.value = ApiState.Error(result.error?.errorDescription)
+                    _state.value = ApiState.Error(result.error?.code, result.error?.message)
                 }
             }
         }

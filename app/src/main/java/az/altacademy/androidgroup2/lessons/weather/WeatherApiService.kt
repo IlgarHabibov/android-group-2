@@ -14,7 +14,7 @@ interface WeatherApiService {
 
 
     @GET("current.json")
-    fun getCurrentWeatherByCityNew(
+    suspend fun getCurrentWeatherByCityNew(
         @Query("q") city: String,
     ): Response<CurrentWeatherResponse>
 

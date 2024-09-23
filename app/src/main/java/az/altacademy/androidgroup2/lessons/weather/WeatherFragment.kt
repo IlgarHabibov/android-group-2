@@ -43,9 +43,7 @@ class WeatherFragment : Fragment() {
 
                 }
                 is ApiState.Error -> {
-
-                    Toast.makeText(requireContext(), "${state.errorMessage}", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(requireContext(), "${state.errorCode} : ${state.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
                 is ApiState.Loading ->{
                     binding.loading.isVisible = state.isLoading

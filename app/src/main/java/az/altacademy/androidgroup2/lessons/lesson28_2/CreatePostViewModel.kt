@@ -31,7 +31,7 @@ class CreatePostViewModel: ViewModel() {
                     state.value = result.data
                 }
                 is ApiResult.Error -> {
-                    error.value = result.error?.errorDescription.toString()
+//                    error.value = result.error?.errorDescription.toString()
                 }
             }
         }

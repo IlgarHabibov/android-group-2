@@ -20,6 +20,8 @@ coil = "2.4.0"
 okHttp = "4.11.0"
 loggingInterceptor = "4.11.0"
 coroutines = "1.7.3"
+swiperefreshlayout = "1.2.0-alpha01"
+hilt = "2.46.1"
 
 
 [libraries]
@@ -56,8 +58,16 @@ coroutines = {group ="org.jetbrains.kotlinx", name = "kotlinx-coroutines-android
 
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+
+
+hilt = {group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
+hiltCompiler = {group ="com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 safe-args = { id = "androidx.navigation.safeargs", version.ref = "safeArgs" }
+hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+
 

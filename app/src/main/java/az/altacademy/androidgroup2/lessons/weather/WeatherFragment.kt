@@ -44,6 +44,10 @@ class WeatherFragment : Fragment() {
 //            }
 //        }
 
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getWeatherData("London", withLoading = false)
+        }
+
         viewModel.getWeatherData("Baku")
         viewModel.getForecastDays("Baku", 10)
 
@@ -51,6 +55,7 @@ class WeatherFragment : Fragment() {
             binding.labelCity.text = dataCurrent?.location?.name.toString()
             binding.labelTemperature.text = dataCurrent?.current?.temperature.toString()
             binding.labelStatus.text = dataCurrent?.current?.condition?.text
+            binding.swipeRefreshLayout.isRefreshing = false
         }
 
         viewModel.dataDays.observe(viewLifecycleOwner) { dataDays ->

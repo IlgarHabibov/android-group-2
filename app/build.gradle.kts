@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -63,9 +64,14 @@ dependencies {
     implementation(libs.loggingInterceptor)
     implementation(libs.coroutines)
 
+    implementation(libs.swiperefreshlayout)
+
 
     implementation(libs.room.runtime)
     kapt(libs.room.compiler)
+
+    implementation(libs.hilt)
+    kapt(libs.hiltCompiler)
 
 
 

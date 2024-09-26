@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lesson_31_graph"
+    app:startDestination="@id/hiltFragment">
+
+    <fragment
+        android:id="@+id/hiltFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson31.HiltFragment"
+        android:label="fragment_hilt"
+        tools:layout="@layout/fragment_hilt" />
+
+</navigation>

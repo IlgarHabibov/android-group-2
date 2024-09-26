@@ -41,8 +41,8 @@ class WeatherViewModel : ViewModel() {
     private val _error: MutableLiveData<String?> = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    fun getWeatherData(city: String) {
-        _loading.value = true
+    fun getWeatherData(city: String, withLoading: Boolean = true) {
+        if (withLoading) _loading.value = true
         viewModelScope.launch {
             val result = apiCall { ApiManager.getWeatherApiService().getCurrentWeatherByCityNew(city) }
             _loading.value = false

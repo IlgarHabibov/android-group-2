@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Lesson27VM: ViewModel() {
+class Lesson27VM : ViewModel() {
 
     var state : MutableLiveData<List<FactsResponse>?> = MutableLiveData<List<FactsResponse>?>()
     var x : MutableLiveData<String> = MutableLiveData<String>()

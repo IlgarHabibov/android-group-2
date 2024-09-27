@@ -9,10 +9,13 @@ class Car @Inject constructor (private val engine: Engine) {
     }
 }
 
-class Engine @Inject constructor (private val detail: Detail) {
+class Engine @Inject constructor (
+    private val power: Int,
+    private val detail: Detail
+) {
 
     fun startEngine(){
-        println(" id=${hashCode()} detailId=${detail.hashCode()} started" )
+        println(" Ilgar id=${hashCode()} power=$power detailId=${detail.hashCode()} started" )
     }
 }
 

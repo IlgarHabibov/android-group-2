@@ -8,15 +8,24 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import az.altacademy.androidgroup2.databinding.FragmentLesson272Binding
 import az.altacademy.androidgroup2.lessons.lesson27_2.LoginRequest
+import az.altacademy.androidgroup2.lessons.lesson31.Car
+import az.altacademy.androidgroup2.lessons.weather.WeatherApiService
 import coil.load
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class Lesson272Fragment : Fragment() {
 
     private lateinit var binding: FragmentLesson272Binding
+
+    @Inject
+    lateinit var apiService: ApiService
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,25 +42,8 @@ class Lesson272Fragment : Fragment() {
         val args = Lesson272FragmentArgs.fromBundle(arguments ?: bundleOf())
         val id = args.id
 
-//        ApiManager.getApiService().getCommentsByPathId(
-//            12,
-//            0,
-//            15
-//        )
-//
-//        ApiManager.getApiService().getCommentsByPathId2(
-//            mapOf(
-//                "postId" to 12,
-//                "page" to 0,
-//                "size" to 15
-//            )
-//        )
 
-        ApiManager.getApiService().login(
-            LoginRequest("test@gmail.com", "Test123")
-        )
-
-        ApiManager.getApiService().getFactById(id).enqueue(object : Callback<FactResponse> {
+        apiService.getFactById(id).enqueue(object : Callback<FactResponse> {
 
             override fun onResponse(call: Call<FactResponse>, response: Response<FactResponse>) {
                 val data = response.body()

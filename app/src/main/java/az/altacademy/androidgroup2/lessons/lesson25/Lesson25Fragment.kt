@@ -7,10 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.room.Room
 import az.altacademy.androidgroup2.R
 import az.altacademy.androidgroup2.databinding.FragmentLesson25Binding
 import az.altacademy.androidgroup2.lessons.lesson26.MyFirstViewModel
+import kotlinx.coroutines.launch
 
 class Lesson25Fragment : Fragment() {
 
@@ -35,8 +39,17 @@ class Lesson25Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.adapter = adapter
 
-        viewModel.getAllPersons()?.observe(viewLifecycleOwner){ persons ->
-            adapter.addList(persons)
+//        viewModel.getAllPersons()?.observe(viewLifecycleOwner){ persons ->
+//            adapter.addList(persons)
+//
+//        }
+//
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.getAllPersons()?.collect{persons ->
+                    adapter.addList(persons)
+                }
+            }
         }
 
         binding.save.setOnClickListener {

@@ -8,7 +8,10 @@ import az.altacademy.androidgroup2.lessons.lesson25.PersonDao
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
 import az.altacademy.androidgroup2.lessons.lesson27.ApiService
 import az.altacademy.androidgroup2.utils.apiCall
+import az.altacademy.androidgroup2.utils.apiCallWithFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,6 +22,9 @@ class WeatherViewModel @Inject constructor (
 
     private val _state: MutableLiveData<UIState<CurrentWeatherResponse?>> = MutableLiveData<UIState<CurrentWeatherResponse?>>()
     val state: LiveData<UIState<CurrentWeatherResponse?>> = _state
+
+    private val _state2 = MutableStateFlow(null)
+
 
     fun getWeatherData(city: String) {
         _state.value = UIState.Loading(true)
@@ -33,6 +39,27 @@ class WeatherViewModel @Inject constructor (
                     _state.value = UIState.Error(result.error?.code, result.error?.message)
                 }
             }
+        }
+    }
+
+    fun getWeatherDataWithFlow(city: String) {
+        viewModelScope.launch {
+            apiCallWithFlow {
+                weatherApiService.getCurrentWeatherByCityNew(city)
+            }.onStart {
+                _state.value = UIState.Loading(true)
+            }.collect{ result ->
+                _state.value = UIState.Loading(false)
+                when(result){
+                    is ApiState.Success -> {
+                        _state.value = UIState.Success(result.data)
+                    }
+                    is ApiState.Error -> {
+                        _state.value = UIState.Error(result.error?.code, result.error?.message)
+                    }
+                }
+            }
+
         }
     }
 

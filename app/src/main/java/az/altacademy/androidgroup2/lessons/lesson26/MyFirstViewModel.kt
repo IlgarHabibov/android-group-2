@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.room.Room
 import az.altacademy.androidgroup2.lessons.lesson25.AppDatabase
 import az.altacademy.androidgroup2.lessons.lesson25.PersonEntity
+import kotlinx.coroutines.flow.Flow
 
 class MyFirstViewModel : ViewModel() {
 
@@ -20,9 +21,8 @@ class MyFirstViewModel : ViewModel() {
         db?.getPersonDAO()?.deletePerson(personEntity)
     }
 
-    fun getAllPersons(): LiveData<List<PersonEntity>>?{
-        val liveData = db?.getPersonDAO()?.getAllPersons()
-        return liveData
+    fun getAllPersons(): Flow<List<PersonEntity>>?{
+        return db?.getPersonDAO()?.getAllPersons()
     }
 
     fun createDb(context: Context) {

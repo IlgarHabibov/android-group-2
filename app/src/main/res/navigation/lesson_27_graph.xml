@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lesson_27_graph"
-    app:startDestination="@id/practice19Fragment">
+    app:startDestination="@id/weatherFragment">
 
     <fragment
         android:id="@+id/lesson27Fragment"

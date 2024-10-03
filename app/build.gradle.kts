@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okHttp)
     implementation(libs.loggingInterceptor)
+
     implementation(libs.coroutines)
 
     implementation(libs.swiperefreshlayout)

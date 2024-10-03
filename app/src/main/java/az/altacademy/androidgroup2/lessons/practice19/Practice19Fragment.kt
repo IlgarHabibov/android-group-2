@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import az.altacademy.androidgroup2.R
+import az.altacademy.androidgroup2.databinding.FragmentPractice19Binding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -14,18 +15,23 @@ import dagger.hilt.android.AndroidEntryPoint
 class Practice19Fragment : Fragment() {
 
     private val viewModel by viewModels<Practice19VM> ()
+    private lateinit var binding: FragmentPractice19Binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_practice19, container, false)
+        binding = FragmentPractice19Binding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val university =  viewModel.getUniversityInfo()
-        university.printStatus()
+       viewModel.startFlow()
+
+        viewModel.state.observe(viewLifecycleOwner){data ->
+            binding.label.text = data
+        }
+
     }
 
 }

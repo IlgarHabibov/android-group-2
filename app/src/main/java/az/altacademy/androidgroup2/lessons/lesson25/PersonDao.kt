@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import androidx.room.Upsert
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PersonDao {
@@ -24,7 +25,7 @@ interface PersonDao {
     fun deletePerson(person: PersonEntity)
 
     @Query("SELECT * FROM personentity")
-    fun getAllPersons(): LiveData<List<PersonEntity>>
+    fun getAllPersons(): Flow<List<PersonEntity>>
 
     @Query("SELECT * FROM personentity WHERE id = :personId")
     fun getPersonById(personId: Int): PersonEntity

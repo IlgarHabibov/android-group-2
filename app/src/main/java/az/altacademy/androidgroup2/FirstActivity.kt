@@ -26,10 +26,24 @@ class FirstActivity : AppCompatActivity() {
 
 
         binding?.backFromFirst?.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            intent.putExtra("first", "${text * 2}")
-//            setResult(Constants.FIRST_ACTIVITY_RESULT_CODE, intent)
-//            finish()
+
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("first", "${text * 2}")
+                putExtra("second", "${text * 2}")
+                putExtra("third", "${text * 2}")
+                putExtra("fourth", "${text * 2}")
+            }
+
+            val intent2 = Intent(this, MainActivity::class.java).also { i->
+                i.putExtra("first", "${text * 2}")
+                i.putExtra("second", "${text * 2}")
+                i.putExtra("third", "${text * 2}")
+                i.putExtra("fourth", "${text * 2}")
+            }
+
+
+            setResult(Constants.FIRST_ACTIVITY_RESULT_CODE, intent2)
+            finish()
 
         }
     }

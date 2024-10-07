@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".lessons.weather.WeatherFragment">
+
+    <data>
+
+        <variable
+            name="weatherViewmodel"
+            type="az.altacademy.androidgroup2.lessons.lesson34.DataBindingViewModel" />
+
+        <variable
+            name="weatherData"
+            type="az.altacademy.androidgroup2.lessons.weather.CurrentWeatherResponse" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:text="@{weatherData.location.name}"/>
+
+        <TextView
+            android:id="@+id/labelTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            android:text="@{String.valueOf(weatherData.current.temperature)}" />
+
+        <TextView
+            android:id="@+id/labelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:text="@{weatherData.current.condition.text}" />
+
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:visibility="gone" />
+
+
+        <Button
+            android:id="@+id/testButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:text="Test button"
+            android:onClick="@{() -> weatherViewmodel.getWeatherData()}"/>
+
+    </LinearLayout>
+
+
+</layout>

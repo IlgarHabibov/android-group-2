@@ -88,7 +88,6 @@ class WeatherFragment : Fragment() {
         add(1, 2)
 
     }
-
     private inline fun add(a: Int, b: Int): Int{
         return a + b
     }

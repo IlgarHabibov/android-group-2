@@ -40,6 +40,9 @@
             android:foregroundServiceType="dataSync"
             android:enabled="true"/>
 
+        <service android:name=".lessons.lesson35.MyBoundService"
+            android:enabled="true"/>
+
         <activity
             android:name=".lessons.lesson35.ServiceActivity"
             android:exported="true">

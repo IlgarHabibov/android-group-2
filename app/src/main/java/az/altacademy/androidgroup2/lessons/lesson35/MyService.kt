@@ -58,8 +58,6 @@ class MyService: Service() {
 
             }
         }
-
-
         return super.onStartCommand(intent, flags, startId)
     }
 

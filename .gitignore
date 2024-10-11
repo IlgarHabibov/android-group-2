@@ -24,3 +24,4 @@ local.properties
 /.idea/deploymentTargetSelector.xml
 /.idea/gradle.xml
 /.idea/kotlinc.xml
+/app/src/main/java/az/altacademy/androidgroup2/lessons/lesson35/TestIgnore.kt

@@ -11,6 +11,7 @@ class MyReceiver: BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         onStateChange?.invoke(intent?.action ?: "Error")
+        //aaaaagis
     }
 
     fun onStateChange(state: (String)-> Unit){

@@ -59,6 +59,7 @@ class ServiceActivity : AppCompatActivity() {
             myServiceConnection,
             Context.BIND_AUTO_CREATE
         )
+        ///
 
         receiver = MyReceiver()
         receiver.onStateChange {

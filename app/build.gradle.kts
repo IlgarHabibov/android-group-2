@@ -76,6 +76,8 @@ dependencies {
     implementation(libs.hilt)
     kapt(libs.hiltCompiler)
 
+    implementation(libs.media)
+
 
 
 //    implementation(libs.androidx.navigation.fragment.ktx)

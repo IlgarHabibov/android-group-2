@@ -22,6 +22,7 @@ loggingInterceptor = "4.11.0"
 coroutines = "1.7.3"
 swiperefreshlayout = "1.2.0-alpha01"
 hilt = "2.46.1"
+media = "1.6.0"
 
 
 [libraries]
@@ -53,6 +54,8 @@ okHttp = {group ="com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp"
 loggingInterceptor = {group ="com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
 
 coroutines = {group ="org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
+
+media = {group = "androidx.media", name = "media", version.ref = "media"}
 
 
 

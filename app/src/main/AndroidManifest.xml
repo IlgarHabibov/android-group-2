@@ -11,11 +11,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
-
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".App"
@@ -29,22 +28,14 @@
         android:theme="@style/Theme.AndroidGroup2"
         tools:targetApi="31">
 
-        <receiver android:name=".lessons.lesson35.MyReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE"/>
-            </intent-filter>
-        </receiver>
-
-        <service android:name=".lessons.lesson35.MyService"
-            android:foregroundServiceType="dataSync"
-            android:enabled="true"/>
-
-        <service android:name=".lessons.lesson35.MyBoundService"
-            android:enabled="true"/>
+        <service
+            android:name=".lessons.practice21.MusicService"
+            android:foregroundServiceType="mediaPlayback"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity
-            android:name=".lessons.lesson35.ServiceActivity"
+            android:name=".lessons.practice21.MusicPlayerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,9 +44,29 @@
             </intent-filter>
         </activity>
 
+
+        <receiver
+            android:name=".lessons.lesson35.MyReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".lessons.lesson35.MyService"
+            android:enabled="true"
+            android:foregroundServiceType="dataSync" />
+        <service
+            android:name=".lessons.lesson35.MyBoundService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".lessons.lesson35.ServiceActivity"
+            android:exported="false"/>
         <activity
             android:name=".lessons.lesson27.Lesson27Activity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".lessons.lesson25.Lesson25Activity"
             android:exported="false" />

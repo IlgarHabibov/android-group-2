@@ -59,7 +59,7 @@ class ListFragment : Fragment() {
 
             val input1 = "asdasd"
             val input2 = "122".toInt()
-            findNavController().navigate(ListFragmentDirections.actionListToAddNote(myArgument = input1, argument2 = input2))
+            findNavController().navigate(ListFragmentDirections.actionListToAddNote(.myArgument = input1, argument2 = input2))
 
         }
 

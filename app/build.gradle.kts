@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    alias(libs.plugins.safe.args.kotlin)
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
     alias(libs.plugins.hilt)
@@ -21,6 +22,7 @@ android {
     }
 
     buildTypes {
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -28,11 +30,15 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -45,8 +51,9 @@ android {
 
 dependencies {
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation(libs.bundles.navigationLibs)
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -54,15 +61,14 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.coil)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okHttp)
-    implementation(libs.loggingInterceptor)
+
+    implementation(libs.bundles.networking)
 
     implementation(libs.coroutines)
 
@@ -77,6 +83,9 @@ dependencies {
     kapt(libs.hiltCompiler)
 
     implementation(libs.media)
+    implementation(libs.workManager)
+
+    implementation("io.coil-kt.coil3:coil:3.0.0-rc01")
 
 
 

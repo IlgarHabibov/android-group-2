@@ -11,8 +11,7 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 lifecycleLivedataKtx = "2.8.3"
 lifecycleViewmodelKtx = "2.8.3"
-navigationFragmentKtx = "2.7.7"
-navigationUiKtx = "2.7.7"
+navigation= "2.7.7"
 safeArgs = "2.7.7"
 room = "2.6.1"
 retrofit = "2.11.0"
@@ -23,6 +22,7 @@ coroutines = "1.7.3"
 swiperefreshlayout = "1.2.0-alpha01"
 hilt = "2.46.1"
 media = "1.6.0"
+workManager = "2.9.1"
 
 
 [libraries]
@@ -40,8 +40,8 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 
 
-androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
-androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
@@ -56,6 +56,8 @@ loggingInterceptor = {group ="com.squareup.okhttp3", name = "logging-interceptor
 coroutines = {group ="org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
 
 media = {group = "androidx.media", name = "media", version.ref = "media"}
+
+workManager = {group ="androidx.work", name = "work-runtime-ktx", version.ref = "workManager"}
 
 
 
@@ -72,6 +74,9 @@ hiltCompiler = {group ="com.google.dagger", name = "hilt-android-compiler", vers
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 safe-args = { id = "androidx.navigation.safeargs", version.ref = "safeArgs" }
+safe-args-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeArgs" }
 hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 
-
+[bundles]
+navigationLibs = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx"]
+networking = ["retrofit", "retrofit-converter-gson", "okHttp", "loggingInterceptor"]

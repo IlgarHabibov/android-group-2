@@ -1,0 +1,13 @@
+[versions]
+
+okhttp = "4.11.0"
+navigation = "2.7.7"
+
+[libraries]
+com-squareup-okhttp3 = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp"}
+loggingInterceptor = {group ="com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
+
+navigation-fragment = {group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation"}
+navigation-ui = {group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation"}
+
+

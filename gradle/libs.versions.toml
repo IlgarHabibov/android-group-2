@@ -23,6 +23,7 @@ swiperefreshlayout = "1.2.0-alpha01"
 hilt = "2.46.1"
 media = "1.6.0"
 workManager = "2.9.1"
+jetbrainsKotlinJvm = "1.9.0"
 
 
 [libraries]
@@ -76,6 +77,8 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 safe-args = { id = "androidx.navigation.safeargs", version.ref = "safeArgs" }
 safe-args-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeArgs" }
 hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 [bundles]
 navigationLibs = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx"]

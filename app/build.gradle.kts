@@ -87,6 +87,8 @@ dependencies {
 
     implementation("io.coil-kt.coil3:coil:3.0.0-rc01")
 
+    implementation(project(":first"))
+
 
 
 //    implementation(libs.androidx.navigation.fragment.ktx)

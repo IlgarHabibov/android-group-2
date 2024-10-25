@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidGroup2"
 include(":app")
+include(":first")
+include(":second")

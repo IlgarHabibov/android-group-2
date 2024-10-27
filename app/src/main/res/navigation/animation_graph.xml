@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/animation_graph"
+    app:startDestination="@id/simpleAnimationsFragment">
+
+    <fragment
+        android:id="@+id/simpleAnimationsFragment"
+        android:name="az.altacademy.androidgroup2.lessons.lesson39.SimpleAnimationsFragment"
+        android:label="fragment_simple_animations"
+        tools:layout="@layout/fragment_simple_animations" />
+</navigation>

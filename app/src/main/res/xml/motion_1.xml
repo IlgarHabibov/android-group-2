@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Transition android:id="@+id/transaction"
+        app:constraintSetStart="@id/startOfMotion"
+        app:constraintSetEnd="@id/endOfMotion"
+        app:duration="2000">
+
+
+        <OnSwipe app:dragDirection="dragDown"
+            app:touchAnchorId="@id/blueRectangle"
+            app:touchAnchorSide="bottom"/>
+
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/startOfMotion">
+
+        <Constraint android:id="@+id/blueRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/blue"/>
+
+        </Constraint>
+
+        <Constraint android:id="@+id/purpleRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/purple"/>
+
+        </Constraint>
+
+        <Constraint android:id="@+id/orangeRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/orange"/>
+
+        </Constraint>
+
+        <Constraint android:id="@+id/centerText">
+
+            <CustomAttribute app:attributeName="textColor"
+                app:customColorValue="@color/black"/>
+
+            <CustomAttribute app:attributeName="textSize"
+                app:customDimension="14sp"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/endOfMotion">
+
+        <Constraint android:id="@+id/blueRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/red"/>
+
+        </Constraint>
+
+        <Constraint android:id="@+id/purpleRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/green"/>
+
+        </Constraint>
+
+        <Constraint android:id="@+id/orangeRectangle"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <CustomAttribute app:attributeName="backgroundColor"
+                app:customColorValue="@color/black"/>
+
+        </Constraint>
+
+
+        <Constraint android:id="@+id/centerText">
+
+            <CustomAttribute app:attributeName="textColor"
+                app:customColorValue="@color/blue"/>
+
+            <CustomAttribute app:attributeName="textSize"
+                app:customDimension="24sp"/>
+
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>

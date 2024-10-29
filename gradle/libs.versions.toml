@@ -26,6 +26,7 @@ workManager = "2.9.1"
 jetbrainsKotlinJvm = "1.9.0"
 
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

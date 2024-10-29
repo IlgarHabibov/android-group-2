@@ -1,4 +1,4 @@
-package az.altacademy.androidgroup2.lessons.lesson39
+package az.altacademy.androidgroup2.lessons.animation
 
 import androidx.fragment.app.Fragment
 

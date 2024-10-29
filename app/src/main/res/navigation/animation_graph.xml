@@ -3,11 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/animation_graph"
-    app:startDestination="@id/simpleAnimationsFragment">
+    app:startDestination="@id/firstTransitionFragment">
 
     <fragment
         android:id="@+id/simpleAnimationsFragment"
-        android:name="az.altacademy.androidgroup2.lessons.lesson39.SimpleAnimationsFragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.SimpleAnimationsFragment"
         android:label="fragment_simple_animations"
         tools:layout="@layout/fragment_simple_animations" />
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.motion.MotionFragment"
+        android:label="fragment_motion"
+        tools:layout="@layout/fragment_motion" />
+    <fragment
+        android:id="@+id/firstTransitionFragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.transition.FirstTransitionFragment"
+        android:label="fragment_first_transition"
+        tools:layout="@layout/fragment_first_transition" >
+
+        <action
+            android:id="@+id/action_firstTransitionFragment_to_secondTransitionFragment"
+            app:destination="@id/secondTransitionFragment"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/secondTransitionFragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.transition.SecondTransitionFragment"
+        android:label="fragment_second_transition"
+        tools:layout="@layout/fragment_second_transition" >
+        <action
+            android:id="@+id/action_secondTransitionFragment_to_thirdTransitionFragment"
+            app:destination="@id/thirdTransitionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdTransitionFragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.transition.ThirdTransitionFragment"
+        android:label="fragment_third_transition"
+        tools:layout="@layout/fragment_third_transition" />
 </navigation>

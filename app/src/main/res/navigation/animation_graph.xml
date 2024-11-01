@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/animation_graph"
-    app:startDestination="@id/firstTransitionFragment">
+    app:startDestination="@id/motion2Fragment">
 
     <fragment
         android:id="@+id/simpleAnimationsFragment"
@@ -40,4 +40,9 @@
         android:name="az.altacademy.androidgroup2.lessons.animation.transition.ThirdTransitionFragment"
         android:label="fragment_third_transition"
         tools:layout="@layout/fragment_third_transition" />
+    <fragment
+        android:id="@+id/motion2Fragment"
+        android:name="az.altacademy.androidgroup2.lessons.animation.motion.Motion2Fragment"
+        android:label="fragment_motion2"
+        tools:layout="@layout/fragment_motion2" />
 </navigation>

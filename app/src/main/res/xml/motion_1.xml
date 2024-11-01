@@ -8,12 +8,12 @@
         app:constraintSetEnd="@id/endOfMotion"
         app:duration="2000">
 
-
         <OnSwipe app:dragDirection="dragDown"
             app:touchAnchorId="@id/blueRectangle"
             app:touchAnchorSide="bottom"/>
 
     </Transition>
+
 
 
     <ConstraintSet android:id="@+id/startOfMotion">
@@ -111,5 +111,6 @@
         </Constraint>
 
     </ConstraintSet>
+
 
 </MotionScene>

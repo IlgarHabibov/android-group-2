@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/arch_graph"
+    app:startDestination="@id/archFragment">
+
+    <fragment
+        android:id="@+id/archFragment"
+        android:name="az.altacademy.androidgroup2.lessons.architecture.ArchFragment"
+        android:label="fragment_arch"
+        tools:layout="@layout/fragment_arch" />
+</navigation>

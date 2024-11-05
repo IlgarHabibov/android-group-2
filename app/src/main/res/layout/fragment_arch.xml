@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lessons.architecture.ArchFragment">
+
+    <Button
+        android:id="@+id/monthlyPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Monthly"/>
+
+    <Button
+        android:id="@+id/seasonalPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seasonal" />
+
+    <Button
+        android:id="@+id/yearlylPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yearly" />
+
+    <Button
+        android:id="@+id/eat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eat" />
+
+    <Button
+        android:id="@+id/fly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fly" />
+
+    <Button
+        android:id="@+id/startWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start working" />
+
+</LinearLayout>

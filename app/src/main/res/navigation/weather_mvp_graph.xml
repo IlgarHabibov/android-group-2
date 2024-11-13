@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weather_mvp_graph"
+    app:startDestination="@id/firestoreFragment">
+
+    <fragment
+        android:id="@+id/weatherMVPFragment"
+        android:name="az.altacademy.androidgroup2.lessons.weathermvp.WeatherMVPFragment"
+        android:label="WeatherMVPFragment" />
+    <fragment
+        android:id="@+id/firestoreFragment"
+        android:name="az.altacademy.androidgroup2.lessons.firestore.FirestoreFragment"
+        android:label="fragment_firestore"
+        tools:layout="@layout/fragment_firestore" />
+</navigation>

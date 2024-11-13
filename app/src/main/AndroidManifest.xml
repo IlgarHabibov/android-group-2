@@ -27,8 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidGroup2"
         tools:targetApi="31">
+
         <activity
-            android:name=".lessons.architecture.ArchitectureActivity"
+            android:name=".lessons.weathermvp.WeatherMVPActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +37,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".lessons.architecture.ArchitectureActivity"
+            android:exported="true"/>
         <activity
             android:name=".lessons.animation.AnimationActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".lessons.lesson37.WorkerActivity"
             android:exported="true" />

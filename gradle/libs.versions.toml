@@ -24,6 +24,11 @@ hilt = "2.46.1"
 media = "1.6.0"
 workManager = "2.9.1"
 jetbrainsKotlinJvm = "1.9.0"
+firebaseCrashlytics = "19.2.1"
+googleGmsGoogleServices = "4.4.2"
+googleFirebaseCrashlytics = "3.0.2"
+firebaseConfig = "22.0.1"
+firebaseFirestore = "25.1.1"
 
 
 
@@ -71,6 +76,9 @@ swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefre
 
 hilt = {group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
 hiltCompiler = {group ="com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
+firebase-config = { group = "com.google.firebase", name = "firebase-config", version.ref = "firebaseConfig" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -80,6 +88,8 @@ safe-args-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "
 hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
 
 [bundles]
 navigationLibs = ["androidx-navigation-fragment-ktx", "androidx-navigation-ui-ktx"]

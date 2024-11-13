@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import az.altacademy.androidgroup2.lessons.lesson25.PersonDao
 import az.altacademy.androidgroup2.lessons.lesson27.ApiManager
 import az.altacademy.androidgroup2.lessons.lesson27.ApiService
+import az.altacademy.androidgroup2.lessons.weathermvp.WeatherRepository
 import az.altacademy.androidgroup2.utils.apiCall
 import az.altacademy.androidgroup2.utils.apiCallWithFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,20 +18,33 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeatherViewModel @Inject constructor (
-    private val weatherApiService: WeatherApiService
+    private val weatherRepository: WeatherRepository
 ) : ViewModel() {
+
+    private var currentCity: String = ""
 
     private val _state: MutableLiveData<UIState<CurrentWeatherResponse?>> = MutableLiveData<UIState<CurrentWeatherResponse?>>()
     val state: LiveData<UIState<CurrentWeatherResponse?>> = _state
 
-    private val _state2 = MutableStateFlow(null)
+
+    fun obtainEvent(event: Event){
+        when(event){
+            is Event.GetWeatherData ->{
+                getWeatherData(city = event.city)
+            }
+            is Event.RefreshWeatherData -> {
+                getWeatherData(currentCity, true)
+            }
+        }
+    }
 
 
-    fun getWeatherData(city: String) {
-        _state.value = UIState.Loading(true)
+    private fun getWeatherData(city: String, isRefreshing: Boolean = false) {
+        currentCity = city
+        showLoading(true, isRefreshing)
         viewModelScope.launch {
-            val result = apiCall { weatherApiService.getCurrentWeatherByCityNew(city) }
-            _state.value = UIState.Loading(false)
+            val result = weatherRepository.getCurrentWeatherByCityNew(city)
+            showLoading(false, isRefreshing)
             when(result){
                 is ApiState.Success -> {
                     _state.value = UIState.Success(result.data)
@@ -42,69 +56,16 @@ class WeatherViewModel @Inject constructor (
         }
     }
 
-    fun getWeatherDataWithFlow(city: String) {
-        viewModelScope.launch {
-            apiCallWithFlow {
-                weatherApiService.getCurrentWeatherByCityNew(city)
-            }.onStart {
-                _state.value = UIState.Loading(true)
-            }.collect{ result ->
-                _state.value = UIState.Loading(false)
-                when(result){
-                    is ApiState.Success -> {
-                        _state.value = UIState.Success(result.data)
-                    }
-                    is ApiState.Error -> {
-                        _state.value = UIState.Error(result.error?.code, result.error?.message)
-                    }
-                }
-            }
-
+    private fun showLoading(isLoading: Boolean, isRefreshing: Boolean){
+        if (!isRefreshing){
+            _state.value = UIState.Loading(isLoading)
         }
     }
 
-//    private val _dataCurrent: MutableLiveData<CurrentWeatherResponse?> = MutableLiveData<CurrentWeatherResponse?>()
-//    val dataCurrent: LiveData<CurrentWeatherResponse?> = _dataCurrent
-//
-//    private val _dataDays: MutableLiveData<List<ForecastDay>> = MutableLiveData<List<ForecastDay>>()
-//    val dataDays: LiveData<List<ForecastDay>> = _dataDays
-//
-//    private val _loading: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-//    val loading: LiveData<Boolean> = _loading
-//
-//    private val _error: MutableLiveData<String?> = MutableLiveData<String?>()
-//    val error: LiveData<String?> = _error
 
-//    fun getWeatherData(city: String, withLoading: Boolean = true) {
-//        if (withLoading) _loading.value = true
-//        viewModelScope.launch {
-//            val result = apiCall { ApiManager.getWeatherApiService().getCurrentWeatherByCityNew(city) }
-//            _loading.value = false
-//            when(result){
-//                is ApiState.Success -> {
-//                    _dataCurrent.value = result.data
-//                }
-//                is ApiState.Error -> {
-//                    _error.value = result.error?.message
-//                }
-//            }
-//        }
-//    }
-//
-//    fun getForecastDays(city: String, dayCount: Int){
-//        _loading.value = true
-//        viewModelScope.launch {
-//            val result = apiCall { ApiManager.getWeatherApiService().getDailyWeather(city, dayCount) }
-//            _loading.value = false
-//            when(result){
-//                is ApiState.Success -> {
-//                    _dataDays.value = result.data?.forecast?.forecastDay
-//                }
-//                is ApiState.Error -> {
-//                    _error.value = result.error?.message
-//                }
-//            }
-//        }
-//    }
+    sealed interface Event{
+        data class GetWeatherData(val city: String): Event
+        data object RefreshWeatherData: Event
+    }
 
 }

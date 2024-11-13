@@ -33,63 +33,41 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.obtainEvent(WeatherViewModel.Event.GetWeatherData("Baku"))
 
-        val run = viewModel.run {
-            state.observe(viewLifecycleOwner){state ->
-                when(state){
-                    is UIState.Success ->{
-                        with(binding){
-                            labelCity.text = state.data?.location?.name.toString()
-                            labelTemperature.text = state.data?.current?.temperature.toString()
-                            labelStatus.text = state.data?.current?.condition?.text
-                        }
-
-
-                    }
-                    is UIState.Error -> {
-                        Toast.makeText(requireContext(), "${state.errorCode} : ${state.errorMessage}", Toast.LENGTH_SHORT).show()
-                    }
-                    is UIState.Loading ->{
-                        binding.loading.isVisible = state.isLoading
-                    }
-                }
-            }
-
-            getWeatherData("Baku")
-
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.obtainEvent(WeatherViewModel.Event.RefreshWeatherData)
         }
 
-        val r = with(viewModel){
-            state.observe(viewLifecycleOwner){state ->
-                when(state){
-                    is UIState.Success ->{
-                        with(binding){
-                            labelCity.text = state.data?.location?.name.toString()
-                            labelTemperature.text = state.data?.current?.temperature.toString()
-                            labelStatus.text = state.data?.current?.condition?.text
-                        }
-
-
-                    }
-                    is UIState.Error -> {
-                        Toast.makeText(requireContext(), "${state.errorCode} : ${state.errorMessage}", Toast.LENGTH_SHORT).show()
-                    }
-                    is UIState.Loading ->{
-                        binding.loading.isVisible = state.isLoading
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UIState.Success -> {
+                    hideRefresh()
+                    with(binding) {
+                        labelCity.text = state.data?.location?.name.toString()
+                        labelTemperature.text = state.data?.current?.temperature.toString()
+                        labelStatus.text = state.data?.current?.condition?.text
                     }
                 }
+
+                is UIState.Error -> {
+                    hideRefresh()
+                    Toast.makeText(
+                        requireContext(),
+                        "${state.errorCode} : ${state.errorMessage}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+                is UIState.Loading -> {
+                    binding.loading.isVisible = state.isLoading
+                }
             }
-
-            getWeatherData("Baku")
         }
-
-        Toast.makeText(requireContext(), "", Toast.LENGTH_SHORT).show()
-
-        add(1, 2)
-
     }
-    private inline fun add(a: Int, b: Int): Int{
-        return a + b
+
+    private fun hideRefresh(){
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
 }

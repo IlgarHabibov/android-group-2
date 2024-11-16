@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".lessons.firestore.FirestoreFragment">
@@ -19,13 +20,12 @@
         android:text="Add"
         android:layout_marginTop="@dimen/dimen_10dp"/>
 
-    <TextView
-        android:id="@+id/resultText"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/noteRecycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/dimen_10dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </LinearLayout>

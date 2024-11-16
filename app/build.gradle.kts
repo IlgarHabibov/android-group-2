@@ -57,6 +57,8 @@ dependencies {
 
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.config)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
 
 
 
@@ -83,7 +85,8 @@ dependencies {
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.messaging)
+
     kapt(libs.room.compiler)
 
     implementation(libs.hilt)

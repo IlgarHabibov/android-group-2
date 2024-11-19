@@ -36,4 +36,10 @@
     <string name="create_post">Create Post</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="go_to_login">Go to login</string>
 </resources>

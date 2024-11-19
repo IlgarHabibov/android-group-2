@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note_graph"
+    app:startDestination="@id/noteRegisterFragment">
+
+    <fragment
+        android:id="@+id/noteRegisterFragment"
+        android:name="az.altacademy.androidgroup2.note.ui.register.NoteRegisterFragment"
+        android:label="fragment_note_register"
+        tools:layout="@layout/fragment_note_register" >
+        <action
+            android:id="@+id/action_noteRegister_to_noteList"
+            app:destination="@id/noteListFragment"
+            app:popUpTo="@id/note_graph" />
+        <action
+            android:id="@+id/action_noteRegister_to_noteLogin"
+            app:destination="@id/noteLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteLoginFragment"
+        android:name="az.altacademy.androidgroup2.note.ui.login.NoteLoginFragment"
+        android:label="fragment_note_login"
+        tools:layout="@layout/fragment_note_login" >
+        <action
+            android:id="@+id/action_noteLogin_to_noteList"
+            app:destination="@id/noteListFragment"
+            app:popUpTo="@id/note_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="az.altacademy.androidgroup2.note.ui.notelist.NoteListFragment"
+        android:label="fragment_note_list"
+        tools:layout="@layout/fragment_note_list" >
+        <action
+            android:id="@+id/action_noteList_to_addNewNote"
+            app:destination="@id/addNewNoteFragment" />
+        <action
+            android:id="@+id/action_noteList_to_noteRegister"
+            app:destination="@id/noteRegisterFragment"
+            app:popUpTo="@id/note_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewNoteFragment"
+        android:name="az.altacademy.androidgroup2.note.ui.addnote.AddNewNoteFragment"
+        android:label="fragment_add_new_note"
+        tools:layout="@layout/fragment_add_note" />
+</navigation>

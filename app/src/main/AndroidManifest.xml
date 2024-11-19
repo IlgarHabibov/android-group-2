@@ -28,17 +28,8 @@
         android:theme="@style/Theme.AndroidGroup2"
         tools:targetApi="31">
 
-
-        <service
-            android:name=".lessons.firestore.FirebasePushService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
-
         <activity
-            android:name=".lessons.weathermvp.WeatherMVPActivity"
+            android:name=".note.ui.NoteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,15 +38,26 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".lessons.firestore.FirebasePushService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".lessons.weathermvp.WeatherMVPActivity"
+            android:exported="false"/>
         <activity
             android:name=".lessons.architecture.ArchitectureActivity"
-            android:exported="true"/>
+            android:exported="false" />
         <activity
             android:name=".lessons.animation.AnimationActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".lessons.lesson37.WorkerActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <service
             android:name=".lessons.practice21.MusicService"
@@ -65,7 +67,7 @@
 
         <activity
             android:name=".lessons.practice21.MusicPlayerActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <receiver
             android:name=".lessons.lesson35.MyReceiver"
@@ -146,7 +148,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import az.altacademy.androidgroup2.databinding.FragmentFirestoreBinding
+import az.altacademy.androidgroup2.note.ui.core.NotesConstants
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -45,7 +46,7 @@ class FirestoreFragment : Fragment() {
 
         FirebaseFirestore.getInstance()
             .collection("test2")
-            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .orderBy(NotesConstants.CREATED_AT, Query.Direction.DESCENDING)
             .addSnapshotListener { task, error ->
             val documents = task?.documents
             val mappedDocuments = documents?.map { document ->

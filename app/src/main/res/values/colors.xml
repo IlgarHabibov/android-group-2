@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    general-->
+
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -13,4 +15,15 @@
     <color name="purpleLight3">#A92FBD</color>
     <color name="grey">#ECECEC</color>
     <color name="darkGrey">#726F6F</color>
+
+
+<!--    light-->
+    <color name="textColor">#171717</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+    <color name="background">#DCD9D9</color>
+    <color name="iconColor">#4F1A57</color>
+    <color name="purpleButton">#4F1A57</color>
+    <color name="redButton">#A40303</color>
+    <color name="deleteColor">#FA0404</color>
+
 </resources>

@@ -11,7 +11,7 @@
         android:id="@+id/titleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="@string/title"
         android:textSize="16sp"
         android:singleLine="true"
         android:textColor="@color/black"
@@ -21,7 +21,7 @@
         android:id="@+id/noteInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Note"
+        android:hint="@string/note"
         android:textSize="16sp"
         android:lines="4"
         android:gravity="start|top"
@@ -32,7 +32,7 @@
         android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/save"
         android:layout_marginTop="30dp"/>
 
 </LinearLayout>

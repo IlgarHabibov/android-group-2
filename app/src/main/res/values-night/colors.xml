@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- night-->
+
+    <color name="textColor">#DCD9D9</color>
+    <color name="buttonTextColor">#171717</color>
+    <color name="background">#171717</color>
+    <color name="iconColor">#CE8FFF</color>
+    <color name="purpleButton">#CE8FFF</color>
+    <color name="redButton">#E66C6C</color>
+    <color name="deleteColor">#EF3C3C</color>
+</resources>

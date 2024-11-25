@@ -19,7 +19,6 @@ class NoteListVM @Inject constructor(
     private val _state: MutableLiveData<CoreUIState<State>> = MutableLiveData()
     val state: LiveData<CoreUIState<State>> = _state
 
-
     fun getUserNotes(userId: String) {
         firestore.collection(NotesConstants.NOTES).document(userId)
             .collection(NotesConstants.USER_NOTES)

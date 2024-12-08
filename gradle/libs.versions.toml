@@ -31,6 +31,7 @@ firebaseConfig = "22.0.1"
 firebaseFirestore = "25.1.1"
 firebaseAuth = "23.1.0"
 firebaseMessaging = "24.1.0"
+paging3 = "3.2.1"
 
 
 
@@ -84,6 +85,9 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuth" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+
+#  Paging
+paging3 = {module ="androidx.paging:paging-runtime", version.ref = "paging3"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

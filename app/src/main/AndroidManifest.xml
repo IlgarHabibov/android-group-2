@@ -27,9 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidGroup2"
         tools:targetApi="31">
-
         <activity
-            android:name=".note.ui.NoteActivity"
+            android:name=".news.ui.NewsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".note.ui.NoteActivity"
+            android:exported="false"/>
 
         <service
             android:name=".lessons.firestore.FirebasePushService"
@@ -48,7 +51,7 @@
 
         <activity
             android:name=".lessons.weathermvp.WeatherMVPActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".lessons.architecture.ArchitectureActivity"
             android:exported="false" />

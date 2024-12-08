@@ -18,7 +18,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0."
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -94,6 +94,8 @@ dependencies {
 
     implementation(libs.media)
     implementation(libs.workManager)
+
+    implementation(libs.paging3)
 
     implementation("io.coil-kt.coil3:coil:3.0.0-rc01")
 
